@@ -1,12 +1,5 @@
-import subprocess
+#import socket
 
-process = subprocess.Popen(["nslookup", "www.google.com"], stdout=subprocess.PIPE)
-output = process.communicate()[0].split('\n')
+#addr1 = socket.gethostbyname_ex('rafex.dev')
 
-ip_arr = []
-for data in output:
-    if 'Address' in data:
-        ip_arr.append(data.replace('Address: ',''))
-ip_arr.pop(0)
-
-print ip_arr
+#print(addr1[3])

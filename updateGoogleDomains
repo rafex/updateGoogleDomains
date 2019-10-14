@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#export PATH_INSTALL_SCRIPT_PYTHON_GOOGLE_DOMAINS="/opt/updateGoogleDomains"
+export PATH_INSTALL_SCRIPT_PYTHON_GOOGLE_DOMAINS="."
+
+export UPDATE_GOOGLE_DOMAINS_LOGS="/var/log/updateGoogleDomains"
+export UPDATE_GOOGLE_DOMAINS_USER=
+export UPDATE_GOOGLE_DOMAINS_PASS=
+export UPDATE_GOOGLE_DOMAINS_DOMAIN=
+export UPDATE_GOOGLE_DOMAINS_SUB_DOMAIN=
+
+### Check for dir, if not found create it using the mkdir ##
+{ # try
+    [ ! -d "$UPDATE_GOOGLE_DOMAINS_LOGS" ] && mkdir -p "${UPDATE_GOOGLE_DOMAINS_LOGS}"
+} 
+
+#/usr/bin/python3 ${PATH_INSTALL_SCRIPT_PYTHON_GOOGLE_DOMAINS}/updateGoogleDomains.py
+python3 ${PATH_INSTALL_SCRIPT_PYTHON_GOOGLE_DOMAINS}/updateGoogleDomains.py
