@@ -23,6 +23,7 @@ import os
 import logging
 import requests
 import re
+import socket
 
 from sys import exit 
 
@@ -65,6 +66,9 @@ page_response = requests.get(PAGE_MY_IP, timeout=5)
 my_ip = page_response.text
 logging.info("My IP: " + my_ip)
 
+addr1 = socket.gethostbyname_ex('rafex.dev')
+my_ip_hostname = addr1[2][0]
+
 try:
     PATH_INSTALL=os.environ["PATH_INSTALL_SCRIPT_PYTHON_GOOGLE_DNS"]
 except Exception:
@@ -96,7 +100,7 @@ except Exception as ex:
     logging.warning('not found file my_ip.txt')
     exit()
 
-if (replace_ip):
+if (replace_ip and my_ip.strip() != my_ip_hostname.strip()):
     URL_GOOGLE_DOMAINS = URL_GOOGLE_DOMAINS.replace('${ip}', my_ip)
     logging.info("GOOGLE_DOMAINS_URL: " + URL_GOOGLE_DOMAINS)
     page_response = requests.get(URL_GOOGLE_DOMAINS, timeout=5)

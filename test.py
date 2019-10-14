@@ -1,5 +1,5 @@
-#import socket
+import socket
 
-#addr1 = socket.gethostbyname_ex('rafex.dev')
+addr1 = socket.gethostbyname_ex('rafex.dev')
 
-#print(addr1[3])
+print(addr1[2][0])
