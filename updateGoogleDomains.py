@@ -65,10 +65,12 @@ except KeyError:
 page_response = requests.get(PAGE_MY_IP, timeout=5)
 my_ip = page_response.text
 logging.info("My IP: " + my_ip)
-
-addr1 = socket.gethostbyname_ex(DOMAINS)
+if(SUB_DOMAINS.strip() == '@'):
+    addr1 = socket.gethostbyname_ex(DOMAINS.strip())
+else:
+    addr1 = socket.gethostbyname_ex(SUB_DOMAINS.strip()+DOMAINS.strip())
 my_ip_hostname = addr1[2][0]
-
+logging.info("My IP Hostname: " + my_ip_hostname)
 try:
     PATH_INSTALL=os.environ["PATH_INSTALL_SCRIPT_PYTHON_GOOGLE_DOMAINS"]
 except Exception:
