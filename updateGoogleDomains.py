@@ -70,7 +70,7 @@ addr1 = socket.gethostbyname_ex('rafex.dev')
 my_ip_hostname = addr1[2][0]
 
 try:
-    PATH_INSTALL=os.environ["PATH_INSTALL_SCRIPT_PYTHON_GOOGLE_DNS"]
+    PATH_INSTALL=os.environ["PATH_INSTALL_SCRIPT_PYTHON_GOOGLE_DOMAINS"]
 except Exception:
     logging.warning('not found enviroment PATH_INSTALL_SCRIPT_PYTHON')
     
