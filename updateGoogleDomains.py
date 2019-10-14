@@ -66,7 +66,7 @@ page_response = requests.get(PAGE_MY_IP, timeout=5)
 my_ip = page_response.text
 logging.info("My IP: " + my_ip)
 
-addr1 = socket.gethostbyname_ex('rafex.dev')
+addr1 = socket.gethostbyname_ex(DOMAINS)
 my_ip_hostname = addr1[2][0]
 
 try:
